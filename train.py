@@ -46,7 +46,6 @@ def get_git_commit():
     log('Git commit: %s' % commit)
     return commit
 
-
 def add_stats(model, model2=None, scope_name='train'):
     with tf.variable_scope(scope_name) as scope:
         summaries = [
@@ -75,7 +74,6 @@ def add_stats(model, model2=None, scope_name='train'):
             ])
 
     return tf.summary.merge(summaries)
-
 
 def save_and_plot_fn(args, log_dir, step, loss, prefix):
     idx, (seq, spec, align) = args
@@ -294,8 +292,8 @@ def main():
     parser.add_argument('--num_test_per_speaker', type=int, default=2)
     parser.add_argument('--random_seed', type=int, default=123)
     parser.add_argument('--summary_interval', type=int, default=100)
-    parser.add_argument('--test_interval', type=int, default=500)
-    parser.add_argument('--checkpoint_interval', type=int, default=1000)
+    parser.add_argument('--test_interval', type=int, default=200)
+    parser.add_argument('--checkpoint_interval', type=int, default=400)
     parser.add_argument('--skip_path_filter',
             type=str2bool, default=False, help='Use only for debugging')
 
