@@ -137,7 +137,7 @@ basic_params.update({
 
     # Eval
     'min_tokens': 50,#originally 50, 30 is good for korean,
-    'min_iters': 30,
+    'min_iters': 20,
     'max_iters': 200,
     'skip_inadequate': False,
 

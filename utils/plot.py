@@ -2,13 +2,17 @@ import os
 import matplotlib
 from jamo import h2j, j2hcj
 
-matplotlib.use('Agg')
-matplotlib.rc('font', family="NanumBarunGothic")
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 
 from text import PAD, EOS
 from utils import add_postfix
 from text.korean import normalize
+
+matplotlib.use('Agg')
+font_location = './utils/D2Coding.ttf'
+font_name = fm.FontProperties(fname = font_location).get_name()
+matplotlib.rc('font', family = font_name)
 
 def plot(alignment, info, text, isKorean=True):
     char_len, audio_len = alignment.shape # 145, 200
@@ -50,6 +54,7 @@ def plot(alignment, info, text, isKorean=True):
     plt.tight_layout()
 
 def plot_alignment(
+
         alignment, path, info=None, text=None, isKorean=True):
 
     if text:

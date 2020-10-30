@@ -23,7 +23,6 @@ from datasets.datafeeder import DataFeeder, _prepare_inputs
 
 log = infolog.log
 
-
 def create_batch_inputs_from_texts(texts):
     sequences = [text_to_sequence(text) for text in texts]
 
@@ -38,7 +37,6 @@ def create_batch_inputs_from_texts(texts):
             log("="*30)
 
     return inputs, input_lengths
-
 
 def get_git_commit():
     subprocess.check_output(['git', 'diff-index', '--quiet', 'HEAD'])     # Verify client is clean
@@ -109,7 +107,6 @@ def save_and_plot(sequences, spectrograms,
 
     parallel_run(fn, items, parallel=False)
     log('Test finished for step {}.'.format(step))
-
 
 def train(log_dir, config):
     config.data_paths = config.data_paths
@@ -280,7 +277,6 @@ def train(log_dir, config):
             traceback.print_exc()
             coord.request_stop(e)
 
-
 def main():
     parser = argparse.ArgumentParser()
 
@@ -328,7 +324,6 @@ def main():
         raise Exception(" [!] Only one of load_path and initialize_path should be set")
 
     train(config.model_dir, config)
-
 
 if __name__ == '__main__':
     main()

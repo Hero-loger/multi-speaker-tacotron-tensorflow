@@ -19,7 +19,6 @@ from utils import plot, PARAMS_NAME, load_json, load_hparams, \
 from text.korean import tokenize
 from text import text_to_sequence, sequence_to_text
 
-
 class Synthesizer(object):
     def close(self):
         tf.reset_default_graph()
@@ -367,7 +366,6 @@ def short_concat(
         wav = np.lib.pad(wav, ((0, 20), (0, 0)), 'constant', constant_values=0)
     else:
         wav = np.lib.pad(wav, ((0, 10), (0, 0)), 'constant', constant_values=0)
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

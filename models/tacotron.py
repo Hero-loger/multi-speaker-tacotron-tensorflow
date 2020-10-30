@@ -12,11 +12,9 @@ from .modules import *
 from .helpers import TacoTestHelper, TacoTrainingHelper
 from .rnn_wrappers import AttentionWrapper, DecoderPrenetWrapper, ConcatOutputAndAttentionWrapper
 
-
 class Tacotron():
     def __init__(self, hparams):
         self._hparams = hparams
-
 
     def initialize(
             self, inputs, input_lengths, num_speakers, speaker_id,
@@ -270,7 +268,6 @@ class Tacotron():
             log('    postnet out:              %d' % post_outputs.shape[-1])
             log('    linear out:               %d' % linear_outputs.shape[-1])
 
-
     def add_loss(self):
         '''Adds loss to the model. Sets "loss" field. initialize must have been called.'''
         with tf.variable_scope('loss') as scope:
@@ -300,7 +297,6 @@ class Tacotron():
 
             self.mel_loss = tf.reduce_mean(mel_loss)
             self.loss_without_coeff = self.mel_loss + self.linear_loss
-
 
     def add_optimizer(self, global_step):
         '''Adds optimizer. Sets "gradients" and "optimize" fields. add_loss must have been called.
