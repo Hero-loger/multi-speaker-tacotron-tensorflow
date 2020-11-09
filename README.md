@@ -84,12 +84,15 @@ Follow below commands. (explain with `son` dataset)
        python3 -m recognition.google --audio_pattern "./datasets/son/audio/*.*.wav"
 
 4. By comparing original text and recognised text, save `audio<->text` pair information into `./datasets/son/alignment.json`.
-
+       
+       <!-- 3만개 이상 아웃오브레인지 에러 뜸 -->
        python3 -m recognition.alignment --recognition_path "./datasets/son/recognition.json" --score_threshold=0.5
 
 5. Finally, generated numpy files which will be used in training.
 
+       librosa==0.6.2 일때만 돌아감 > pip3 install -r requirements.txt
        python3 -m datasets.generate_data ./datasets/son/alignment.json
+       끝나고 안되면 버전 다운 시켜야 함 librosa==0.5.1
 
 Because the automatic generation is extremely naive, the dataset is noisy. However, if you have enough datasets (20+ hours with random initialization or 5+ hours with pretrained model initialization), you can expect an acceptable quality of audio synthesis.
 
